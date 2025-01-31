@@ -1,9 +1,3 @@
-### Installation
-
-```sh
-go install github.com/wayneashleyberry/gitroot
-```
-
 ### Usage
 
 #### Fish
