@@ -38,7 +38,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             println!("{}", find_git_dir(&cwd, match_type == "first"));
         }
         Some(("init", sub_matches)) => match sub_matches.subcommand_name() {
-            Some("fish") => println!("alias gr=\"cd $(gitroot find --match last)\""),
+            Some("fish") => println!("alias gr=\"cd (gitroot find --match last)\""),
             Some("bash") | Some("zsh") | Some("nu") | Some("elvish") => {
                 return Err("Not yet implemented".into())
             }
