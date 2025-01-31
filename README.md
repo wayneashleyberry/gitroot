@@ -1,15 +1,25 @@
-### Installation
+# gitroot
+
+> Find the root directory of your git repo.
+
+## Installation
+
+1. **Install binary**
 
 ```sh
 cargo install --git https://github.com/wayneashleyberry/gitroot.git
 ```
 
-### Usage
+2. **Setup gitroot on your shell**
 
-#### Fish
+  <details>
+   <summary>Fish</summary>
 
-Place this in your `$HOME/.config/fish/config.fish` file.
+> Add this to the <ins>**end**</ins> of your config file (usually
+> `~/.config/fish/config.fish`):
+>
+> ```sh
+> zoxide init fish | source
+> ```
 
-```fish
-gitroot init fish | source
-```
+   </details>
