@@ -7,5 +7,5 @@ edition = "2021"
 clap = { version = "4.5.27", features = ["derive"] }
 
 [[bin]]
-name = "main"
+name = "gitroot"
 path = "src/main.rs"
