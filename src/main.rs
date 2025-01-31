@@ -23,8 +23,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             Command::new("init")
                 .about("Initialise your shell")
                 .arg(
-                    Arg::new("alias")
-                        .long("alias")
+                    Arg::new("cmd")
+                        .long("cmd")
                         .default_value("gr")
                         .help("Configure the alias that is mapped in your shell environment"),
                 )
@@ -44,9 +44,9 @@ fn main() -> Result<(), Box<dyn Error>> {
             println!("{}", find_git_dir(&cwd, match_type == "first"));
         }
         Some(("init", sub_matches)) => {
-            let alias = sub_matches.get_one::<String>("alias").unwrap();
+            let cmd = sub_matches.get_one::<String>("cmd").unwrap();
             match sub_matches.subcommand_name() {
-                Some("fish") => println!("alias {}=\"cd (gitroot find --match last)\"", alias),
+                Some("fish") => println!("alias {}=\"cd (gitroot find --match last)\"", cmd),
                 Some("bash") | Some("zsh") | Some("nu") | Some("elvish") => {
                     return Err("Not yet implemented".into())
                 }
@@ -55,7 +55,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                     let mut init_cmd =
                         Command::new("init")
                             .about("Initialise your shell")
-                            .arg(Arg::new("alias").long("alias").default_value("gr").help(
+                            .arg(Arg::new("cmd").long("cmd").default_value("gr").help(
                                 "Configure the alias that is mapped in your shell environment",
                             ))
                             .subcommand(Command::new("fish").about("Initialize Fish shell"))
