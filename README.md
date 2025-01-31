@@ -1,3 +1,9 @@
+### Installation
+
+```sh
+cargo install --git https://github.com/wayneashleyberry/gitroot.git
+```
+
 ### Usage
 
 #### Fish
