@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             let cmd = sub_matches.get_one::<String>("cmd").unwrap();
             match sub_matches.subcommand_name() {
                 Some("fish") => println!("alias {}=\"cd (gitroot find --match last)\"", cmd),
-                Some("nu") => println!("alias {} = { cd (gitroot find --match last) }", cmd),
+                Some("nu") => println!("alias {} = {{ cd (gitroot find --match last) }}", cmd),
                 Some("bash") | Some("zsh") | Some("elvish") => {
                     return Err("Not yet implemented".into())
                 }
