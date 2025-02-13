@@ -31,7 +31,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .subcommand(Command::new("fish").about("Initialize Fish shell"))
                 .subcommand(Command::new("bash").about("Not yet implemented"))
                 .subcommand(Command::new("zsh").about("Not yet implemented"))
-                .subcommand(Command::new("nu").about("Initialize nu shell"))
+                .subcommand(Command::new("nushell").about("Initialize nu shell"))
                 .subcommand(Command::new("elvish").about("Not yet implemented")),
         );
 
@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             let cmd = sub_matches.get_one::<String>("cmd").unwrap();
             match sub_matches.subcommand_name() {
                 Some("fish") => println!("alias {}=\"cd (gitroot find --match last)\"", cmd),
-                Some("nu") => println!("alias {} = {{ cd (gitroot find --match last) }}", cmd),
+                Some("nushell") => println!("def {} [] = {{ cd (gitroot find --match last) }}", cmd),
                 Some("bash") | Some("zsh") | Some("elvish") => {
                     return Err("Not yet implemented".into())
                 }
@@ -62,7 +62,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                             .subcommand(Command::new("fish").about("Initialize Fish shell"))
                             .subcommand(Command::new("bash").about("Not yet implemented"))
                             .subcommand(Command::new("zsh").about("Not yet implemented"))
-                            .subcommand(Command::new("nu").about("Initialize nu shell"))
+                            .subcommand(Command::new("nushell").about("Initialize nu shell"))
                             .subcommand(Command::new("elvish").about("Not yet implemented"));
                     init_cmd.print_help()?;
                 }
